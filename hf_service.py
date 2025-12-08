@@ -37,7 +37,7 @@ def classify_with_hf(text, labels):
         raise Exception(f"Erreur Hugging Face: {str(e)}")
 
 
-##Test
+# #Test
 # if __name__ == "__main__":
 #     res = classify_with_hf("Le nouveau logiciel améliore les opérations de l'entreprise.",
 #         ["IT", "Finance", "Opérations"])
