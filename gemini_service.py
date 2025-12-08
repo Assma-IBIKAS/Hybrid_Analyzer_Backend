@@ -10,19 +10,21 @@ GENAI_API_KEY = os.getenv("Gemini_API_KEY")
 # Créer le client Gemini
 client = genai.Client(api_key=GENAI_API_KEY)
 
-def call_gemini(text: str, category: str, max_length: int = 100) -> dict:
+def call_gemini(text: str, category: str) -> dict:
     
     try:
         # Prompt Engineering
         prompt = f"""
-        Texte à analyser : {text}
-        Catégorie : {category}
+            Texte : {text}
+            Catégorie : {category}
 
-        Instructions :
-        - Faire un résumé **créatif et captivant** clair d'environ {max_length} mots
-        - Détecter le ton : positif / neutre / négatif
-        - Structurer le résumé avec introduction et conclusion
+            Tu es un expert en résumé de textes.
+
+            Objectifs :
+            - Fournir un résumé court, clair et facile à lire.
+            - Rendre le résumé fluide et structuré en quelques lignes.
         """
+
 
         # Appel de l'API Gemini
         response = client.models.generate_content(
